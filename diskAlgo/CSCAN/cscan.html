@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!--    <script src="node_modules/canvasjs/dist/canvasjs.js"></script>-->
+
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Chonburi&family=Crimson+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Work+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="cscan.css" />
+
+    <!--<script src="client_manual_input.js"></script>-->
+    <script src="cscan.js"></script>
+
+    <script>
+        function manualOrFileInputCheck() {
+            if (document.getElementById("manualCheck").checked) {
+                document.getElementById("ifManualInput").style.display = 'block';
+                document.getElementById("ifManualOutput").style.display = 'block';
+            } else {
+                document.getElementById("ifManualInput").style.display = 'block';
+                document.getElementById("ifManualOutput").style.display = 'block';
+            }
+            if (document.getElementById("fileCheck").checked) {
+                document.getElementById("ifFileInput").style.display = 'block';
+                document.getElementById("ifFileOutput").style.display = 'block';
+            } else {
+                document.getElementById("ifFileInput").style.display = 'block';
+                document.getElementById("ifFileOutput").style.display = 'block';
+            }
+        }
+    </script>
+    <title>CSCAN</title>
+    <link rel="icon" href="images/favicon.ico" />
+    <!-- load CSS -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" />
+    <!-- Google web font "Open Sans" -->
+
+
+
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <!-- https://getbootstrap.com/ -->
+    <link rel="stylesheet" href="css/templatemo-style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="styling.css" />
+
+</head>
+
+<body>
+
+    <div class="header navbar">
+        <div class="nav nav-center">
+            <div>
+                <div class="name"><a href="../../index.html">HOME</a></div>
+                <div class="logo">VIRTUAL LAB</div>
+                <div class="button">
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="content">
+        <div class="theory">
+            <div class="theory-heading">
+                <div><b>C.S.C.A.N</b></div>
+            </div>
+            <div class="theory-text">
+                <div>Theory :</div>
+                <div></div>
+                <div>
+                    Circular-SCAN Algorithm is an improved version of the SCAN Algorithm.
+                    <!-- </p> -->
+                    <br />
+                    Head starts from one end of the disk and move towards the other end servicing all the
+                    requests in between.
+                    After reaching the other end, head reverses its direction.
+                    It then returns to the starting end without servicing any request in between.
+                    The same process repeats.
+
+                    <br>
+
+
+                    <div> <br>
+                        <h3>Advantages:</h3>
+                        <ul>
+                            <li>The waiting time for the cylinders just visited by the head is reduced as compared to
+                                the SCAN Algorithm.</li>
+                            <li>CSCAN provides uniform waiting time.</li>
+                            <li>CSCAN provides better response time.</li>
+                        </ul>
+                        <br>
+
+                        <h3>Disadvantages:</h3>
+                        <ul>
+                            <li>CSCAN causes more seek movements as compared to SCAN Algorithm.</li>
+                            <li>It causes the head to move till the end of the disk even if there are no requests to be
+                                serviced..</li>
+                        </ul>
+
+                    </div>
+
+                    <div>
+
+                        <h3 style="margin-top: 2%;">Example:</h3>
+                        Consider the following disk request sequence for a disk with 100 tracks : 98, 137, 122, 183, 14,
+                        133, 65, 78
+
+                        <br>And current position of Read/Write head is : 54, moving in the left direction
+                        <br>
+
+                        <img src='https://media.geeksforgeeks.org/wp-content/uploads/20190820015715/fcfs2.png'>>
+                        <br>So, Number of Cylinders = 40 + 14 + 65 + 13 + 20 + 24 + 11 + 4 + 46 = 237
+                    </div>
+
+                </div>
+
+
+
+            </div>
+            <div class="theory-step">
+                <h3 style="color: white;">Steps to excute:</h2>
+                    <ul>
+                        <label>STEP 1 :</label>
+                        <li>
+                            Input the queue you want to be scheduled using
+                            CSCAN.
+                        </li>
+                        <label>STEP 2 :</label>
+                        <li>
+                            Input the current position of the head.
+                        </li>
+                        <label>STEP 3 :</label>
+                        <li>
+                            After execution of the queue you will get the required seek count and the seek sequence
+                        </li>
+                    </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="visualizer tm-timeline-item">
+        <div class="tm-timeline-item-inner">
+
+            <div class="new tm-timeline-description-wrap">
+                <div class="tm-bg-dark tm-timeline-description">
+
+                    <input class="" type="radio" onclick="javascript:manualOrFileInputCheck();" name="manualFile"
+                        id="manualCheck" /><label style="color: #000000"><b>&nbsp;&nbsp; Enter The
+                            Inputs&nbsp;&nbsp;&nbsp;</b></label>
+
+                    <div class="">
+                        <div class="form-container-res" id="ifManualInput" style="display:none">
+                            <label class="col-form-label">Enter the request sequence:</label>
+                            <input id="Sequence" class="form-control" oninput="resetCScanResult()"
+                                placeholder="Eg: 50, 55, 80" />
+                            <p></p>
+                            <label class="col-form-label">Enter the initial head position:</label>
+                            <input id="Head" class="form-control" oninput="resetCScanResult()" placeholder="Eg: 60" />
+                            <p></p>
+                            <div class="center-run">
+                                <button class="btn btn-light btn-outline-primary" onclick="cscan_click()" id="CSCAN">Run
+                                    CSCAN</button>
+                            </div>
+
+                            <a href="../comparison.html" target="_blank">
+                                <div class="center-run" style="margin-top: 1%;">
+                                    <button class="btn btn-light btn-outline-primary">Compare</button>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="form-container" id="ifFileInput" style="display:none; text-align: center">
+                            <label>Format of input</label>
+                            <br>
+                            <br>
+                            <br>
+                            <input type="file" style="text-align: center" onclick="resetFileInputCScan()"
+                                id="file-selector" accept=".txt" multiple>
+                            <br>
+                            <br>
+                            <input type="button" class="btn btn-outline-primary" onclick="fileCScan();"
+                                value="Run CSCAN">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="newc tm-bg-dark-light tm-timeline-description">
+        <h5 class="tm-text-orange tm-font-400">
+
+            Output of the algorithm
+
+        </h5>
+
+        <div class="cscan-output-man" id="ifManualOutput" style="display:none">
+            <label>Total seek count is:&nbsp;</label><span style="font-weight: bolder; color: #000000"
+                id="cscan_totalSeekCount"></span>
+            <p></p>
+            <label>Sequence of operations' processing:&nbsp;</label><span style="font-weight: bolder; color: #000000"
+                id="cscan_finalOrder"></span>
+            <p></p>
+            <span style="font-weight: bolder; color: #ffffff" id="cscan_averageSeekCount"></span>
+            <p></p>
+            <p></p>
+            <div id="chartContainer" style="display: none"></div>
+            <div id="betweenButton">
+
+            </div>
+        </div>
+
+        <div class="tm-timeline-connector-vertical"></div>
+
+
+
+    </div>
+
+
+
+
+    </div>
+    <!--  row -->
+    </div>
+    <!-- .container -->
+
+    <script src="js/jquery.min.js"></script>
+    <!-- <script src="js/jquery-3.2.1.slim.min.js"></script> -->
+    <script src="js/templatemo-script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSCAN</title>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Chonburi&family=Crimson+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Work+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="cscan.css" />
+</head>
+
+<body>
+    <div class="header">
+        <div class="nav">
+            <div>
+                <div class="name"><a href="../../index.html">HOME</a></div>
+                <div class="logo">VIRTUAL LAB</div>
+                <div class="button">
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="content">
+        <div class="theory">
+            <div class="theory-heading">
+                <div>CIRCULAR SCAN</div>
+                <div>CSCAN</div>
+            </div>
+            <div class="theory-text">
+                <div>Theory :</div>
+                <div></div>
+                <div>
+                    &emsp;&emsp;Circular-SCAN Algorithm is an improved version of the SCAN Algorithm.
+                    <br />
+                    &emsp;&emsp;Head starts from one end of the disk and move towards the other end servicing all the
+                    requests in between.
+                    After reaching the other end, head reverses its direction.
+                    It then returns to the starting end without servicing any request in between.
+                    The same process repeats.
+
+                    <br>
+                    <div> <br>
+                        <h3>Advantages:</h3>
+                        <ul>
+                            <li>The waiting time for the cylinders just visited by the head is reduced as compared to
+                                the SCAN Algorithm.</li>
+                            <li>CSCAN provides uniform waiting time.</li>
+                            <li>CSCAN provides better response time.</li>
+                        </ul>
+                        <br>
+
+                        <h3>Disadvantages:</h3>
+                        <ul>
+                            <li>CSCAN causes more seek movements as compared to SCAN Algorithm.</li>
+                            <li>It causes the head to move till the end of the disk even if there are no requests to be
+                                serviced..</li>
+                        </ul>
+
+                    </div>
+
+                    <div>
+
+                        <h3 style="margin-top: 2%;">Example:</h3>
+                        Consider the following disk request sequence for a disk with 100 tracks : 98, 137, 122, 183, 14,
+                        133, 65, 78
+
+                        <br>And current position of Read/Write head is : 54, moving in the left direction
+                        <br>
+                        <img
+                            src='https://static.javatpoint.com/operating-system/images/os-scan-and-c-scan-algorithm.png'>
+                        <br>So, Number of Cylinders = 40 + 14 + 65 + 13 + 20 + 24 + 11 + 4 + 46 = 237
+                    </div>
+
+                </div>
+
+
+
+            </div>
+            <div class="theory-step">
+                <h3 style="color: white;">Steps to excute:</h2>
+                    <ul>
+                        <label>STEP 1 :</label>
+                        <li>
+                            Input the queue you want to be scheduled using
+                            CSCAN.
+                        </li>
+                        <label>STEP 2 :</label>
+                        <li>
+                            Input the current position of the head.
+                        </li>
+                        <label>STEP 3 :</label>
+                        <li>
+                            After execution of the queue you will get the required seek count and the seek sequence.
+                        </li>
+                    </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="visualizer">
+        <h2 style="margin: 2%;">Algorithm Execution</h2>
+        <div class="error">Invalid Input</div>
+        <div class="container">
+            <div>
+                <div class="buttons">
+                    <div class="play">PLAY</div>
+                    <div class="reset">RESET</div>
+                </div> -->
+
+<!-- </div>
+            <div>
+                <div class="add-process">
+                    <div class="input">
+                        <div class="arrival">
+                            <label for="arrival-time"> Input queue (separated with space):</label>
+                            <input type="text" id="inputNumbers" name="arrival-time"
+                                placeholder="eg: &quot;82 17 34 14 24 16 &quot;" />
+                        </div>
+
+                        <div class="burst">
+                            <label for="burst-time">Current position of Read/Write Head:</label>
+                            <input type="text" id="inputHeadPos" name="burst-time" class="form-control"
+                                placeholder="50" />
+                        </div>
+                    </div>
+                     <div class="add btnVisualizeContainer"></div> -->
+<!-- <button onclick="Calculate();" id="btnVisualize" type="button"
+                        class="btn btn-primary add">Calculate</button>
+                </div>
+
+                <div id="errorMessage">
+
+                </div>
+                <div class="canvas">
+                    <canvas id="canvas" width="1000" height="60"></canvas>
+                </div>
+                <div id="count-output">
+                </div>
+            </div>
+        </div>
+    </div>
+    </div> -->
+<!-- <div id="chart">
+        <table id="am">
+            <tr id="row1"></tr>
+            <tr id="row2"></tr>
+        </table>
+    </div>
+    <div class="barchart" id="container"></div> -->
+
+<!-- <script src="https://cdn.anychart.com/releases/8.0.0/js/anychart-base.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/8.0.0/themes/dark_earth.min.js" type="text/javascript"></script>
+
+    <script src="assets/js/jquery-3.3.1.min.js"></script>
+
+    <script src="assets/js/theme-change.js"></script>
+
+    <script src="assets/js/owl.carousel.js"></script>
+    <script src="cscan.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+
+
+
+</body>
+
+</html> --> --> -->

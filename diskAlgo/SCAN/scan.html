@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!--    <script src="node_modules/canvasjs/dist/canvasjs.js"></script>-->
+
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Chonburi&family=Crimson+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Work+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="scan.css" />
+
+    <!--<script src="client_manual_input.js"></script>-->
+    <script src="scan.js"></script>
+
+    <script>
+        function manualOrFileInputCheck() {
+            if (document.getElementById("manualCheck").checked) {
+                document.getElementById("ifManualInput").style.display = 'block';
+                document.getElementById("ifManualOutput").style.display = 'block';
+            } else {
+                document.getElementById("ifManualInput").style.display = 'block';
+                document.getElementById("ifManualOutput").style.display = 'block';
+            }
+            if (document.getElementById("fileCheck").checked) {
+                document.getElementById("ifFileInput").style.display = 'block';
+                document.getElementById("ifFileOutput").style.display = 'block';
+            } else {
+                document.getElementById("ifFileInput").style.display = 'block';
+                document.getElementById("ifFileOutput").style.display = 'block';
+            }
+        }
+    </script>
+    <title>SCAN</title>
+    <link rel="icon" href="images/favicon.ico" />
+    <!-- load CSS -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" />
+    <!-- Google web font "Open Sans" -->
+
+
+
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <!-- https://getbootstrap.com/ -->
+    <link rel="stylesheet" href="css/templatemo-style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="styling.css" />
+
+</head>
+
+<body>
+
+    <div class="header navbar">
+        <div class="nav nav-center">
+            <div>
+                <div class="name"><a href="../../index.html">HOME</a></div>
+                <div class="logo">VIRTUAL LAB</div>
+                <div class="button">
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="content">
+        <div class="theory">
+            <div class="theory-heading">
+                <div><b>S.C.A.N</b></div>
+            </div>
+            <div class="theory-text">
+                <div>Theory :</div>
+                <div></div>
+                <div>
+                    &emsp;&emsp;The SCAN disk scheduling algorithm is another type of disk scheduling algorithm. In this
+                    algorithm, we move the disk arm into a specific direction (direction can be moved towards large
+                    value or the smallest value). Each request is addressed that comes in its path, and when it comes
+                    into the end of the disk, then the disk arm will move reverse, and all the requests are addressed
+                    that are arriving in its path.
+                    </p>
+                    <br />
+                    <b>SCAN disk scheduling algorithm is also called an elevator algorithm because its working is like
+                        an elevator.</b>
+                    <br>
+                    <div> <br>
+                        <h3>Advantages:</h3>
+                        <ul>
+                            <li>In SCAN disk scheduling, there is a low variance of response time.</li>
+                            <li>In this algorithm, throughput is high.</li>
+                            <li>Response time is average.</li>
+                            <li>In SCAN disk scheduling, there is no starvation in static mode.</li>
+                        </ul>
+                        <br>
+
+                        <h3>Disadvantages:</h3>
+                        <ul>
+                            <li>SCAN disk scheduling algorithm takes long waiting time for the cylinders, just visited
+                                by the head.</li>
+                            <li>In SCAN disk scheduling, we have to move the disk head to the end of the disk even when
+                                we don’t have any request to service.</li>
+                            <li>More complex algorithm to implement.</li>
+                            <li>Starvation may happen in dynaic mode.</li>
+                        </ul>
+
+                    </div>
+
+                    <div>
+
+                        <h3 style="margin-top: 2%;">Example:</h3>
+                        Consider a disk queue with requests for I/O to blocks on cylinders (98, 183, 41, 122, 14, 124,
+                        65, 67) The SCAN scheduling algorithm is used.
+                        <br><b>The head is initially at cylinder number 53 moving towards larger cylinder numbers on its
+                            servicing pass.</b>The cylinders are numbered from 0 to 199. The total head movement (in
+                        number of cylinders) incurred while servicing these requests is ___.
+                        <br>
+
+                        <img src='https://media.geeksforgeeks.org/wp-content/uploads/20190727175932/fcfs-2.jpg'>>
+                        <br>Total head movements incurred while servicing these requests
+
+                        = (65 – 53) + (67 – 65) + (98 – 67) + (122 – 98) + (124 – 122) + (183 – 124) + (199 – 183) +
+                        (199 – 41) + (41 – 14)
+
+                        = 12 + 2 + 31 + 24 + 2 + 59 + 16 + 158 + 27
+
+                        = 331
+                    </div>
+
+                </div>
+
+
+
+            </div>
+            <div class="theory-step">
+                <h3 style="color: white;">Steps to excute:</h2>
+                    <ul>
+                        <label>STEP 1 :</label>
+                        <li>
+                            Input the queue you want to be scheduled using
+                            SCAN.
+                        </li>
+                        <label>STEP 2 :</label>
+                        <li>
+                            Input the current position of the head.
+                        </li>
+                        <label>STEP 3 :</label>
+                        <li>
+                            After execution of the queue you will get the required seek count and the seek sequence (The
+                            direction is by default set to left).
+                        </li>
+                    </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="visualizer tm-timeline-item">
+        <div class="tm-timeline-item-inner">
+
+            <div class="new tm-timeline-description-wrap">
+                <div class="tm-bg-dark tm-timeline-description">
+
+                    <input class="" type="radio" onclick="javascript:manualOrFileInputCheck();" name="manualFile"
+                        id="manualCheck" /><label style="color: #000000"><b>&nbsp;&nbsp; Enter The
+                            Inputs&nbsp;&nbsp;&nbsp;</b></label>
+
+                    <div class="">
+                        <div class="form-container-res" id="ifManualInput" style="display:none">
+                            <label class="col-form-label">Enter the request sequence:</label>
+                            <input id="Sequence" class="form-control" oninput="resetScanResult()"
+                                placeholder="Eg: 50, 55, 80" />
+                            <p></p>
+                            <label class="col-form-label">Enter the initial head position:</label>
+                            <input id="Head" class="form-control" oninput="resetScanResult()" placeholder="Eg: 60" />
+                            <p></p>
+                            <div class="center-run">
+                                <button class="btn btn-light btn-outline-primary" onclick="scan_click()" id="SCAN">Run
+                                    SCAN</button>
+                            </div>
+
+                            <a href="../comparison.html" target="_blank">
+                                <div class="center-run" style="margin-top: 1%;">
+                                    <button class="btn btn-light btn-outline-primary">Compare</button>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="form-container" id="ifFileInput" style="display:none; text-align: center">
+                            <label>Format of input</label>
+                            <br>
+                            <br>
+                            <br>
+                            <input type="file" style="text-align: center" onclick="resetFileInputScan()"
+                                id="file-selector" accept=".txt" multiple>
+                            <br>
+                            <br>
+                            <input type="button" class="btn btn-outline-primary" onclick="fileScan();" value="Run SCAN">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="newc tm-bg-dark-light tm-timeline-description">
+        <h5 class="tm-text-orange tm-font-400">
+
+            Output of the algorithm
+
+        </h5>
+
+        <div class="scan-output-man" id="ifManualOutput" style="display:none">
+            <label>Total seek count is:&nbsp;</label><span style="font-weight: bolder; color: #000000"
+                id="scan_totalSeekCount"></span>
+            <p></p>
+            <label>Sequence of operations' processing:&nbsp;</label><span style="font-weight: bolder; color: #000000"
+                id="scan_finalOrder"></span>
+            <p></p>
+            <span style="font-weight: bolder; color: #ffffff" id="scan_averageSeekCount"></span>
+            <p></p>
+            <p></p>
+            <div id="chartContainer" style="display: none"></div>
+            <div id="betweenButton">
+
+            </div>
+        </div>
+
+        <div class="tm-timeline-connector-vertical"></div>
+
+
+
+    </div>
+
+
+
+
+    </div>
+    <!--  row -->
+    </div>
+    <!-- .container -->
+
+    <script src="js/jquery.min.js"></script>
+    <!-- <script src="js/jquery-3.2.1.slim.min.js"></script> -->
+    <script src="js/templatemo-script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
