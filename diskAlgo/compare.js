@@ -1638,7 +1638,7 @@ function comparison_click_from_algo() {
       //   name: "LIFO",
       //   showInLegend: true,
       //   dataPoints: bry[6],
-      // },
+      // }
     ],
   });
   chart.render();
