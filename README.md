@@ -2,7 +2,7 @@
 
 ## Demo
 
-You can see demo [here](https://naim30.github.io/OS-virtual-lab/.)
+You can see demo [here](https://khushalip.github.io/OS-lab/index.html)
 
 ## Languages
 
